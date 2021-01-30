@@ -1,0 +1,2 @@
+graft sneky
+global-exclude *.py[cod]
