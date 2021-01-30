@@ -21,6 +21,11 @@ It consists of eight main modules:
 pip install build-your-sneky
 ```
 
+## source installation
+```bash
+python setup.py install
+```
+
 ## Usage
 ```py
 import sneky
