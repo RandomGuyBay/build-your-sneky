@@ -19,7 +19,7 @@ setup(
     long_description=README + '\n\n' + HISTORY,
     keywords=['Chat', 'Ai', 'Home_Automation'],
     author='RandomGuyBay',
-    url='https://github.com/ncthuc/elastictools',
+    url='https://github.com/RandomGuyBay/build-your-sneky',
     download_url='https://pypi.org/project/build-your-sneky/',
     license='MIT',
 )
