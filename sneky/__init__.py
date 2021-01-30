@@ -99,10 +99,20 @@ def speak(bot_name, variable_text):
     if prob.item() > 0.99:
         for intent in ai_json()['intents']:
             if tag == intent["tag"]:
-                print(f"{bot_name}: {random.choice(intent['responses'])}")
+                output_text = random.choice(intent['responses'])
+                return output_text
 
     else:
         print(f"{bot_name}: dunno")
     """This is your chat, dont forget about bot name."""
 def help():
     print("This package contains: device(), nltkpunkt(), brain(), clear(), ai_json(), ai_load(), recieve_text(text), speak(bot_name, variable_text).")
+"""nltkpunkt()
+device()
+brain()
+ai_json()
+ai_load()
+clear()
+while True:
+    text = input("You: ")
+    print(speak("AI", text))"""

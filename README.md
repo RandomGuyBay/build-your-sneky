@@ -13,17 +13,14 @@ It consists of eight main modules:
 - `recieve_text`: Recieve your text, but you have to define that text from variable
 - `speak`: This is your chat, dont forget about bot name
 
+This package works only with python 3.7
+
 # Installation
  
 ## Normal installation
 
 ```bash
 pip install build-your-sneky
-```
-
-## source installation
-```bash
-python setup.py install
 ```
 
 ## Usage
