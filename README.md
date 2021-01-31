@@ -1,8 +1,8 @@
-Build your own assistant/voice assistant with this basic AI chat. This package does not contain AI training but training will be implemented in next version.
+Build your own assistant/voice assistant with this basic AI chat.
 
 # Description
     
-It consists of eight main modules:
+It consists of nine main modules:
 
 - `device`: This thing must be implemented in your sneky so without this you cant use it
 - `nltkpunkt`: Needed package from nltk called 'punkt' also need in code
@@ -12,8 +12,7 @@ It consists of eight main modules:
 - `ai_load`: This will load data to work fine
 - `recieve_text`: Recieve your text, but you have to define that text from variable
 - `speak`: This is your chat, dont forget about bot name
-
-This package works only with python 3.7
+- `training`: This module trains your sneky from database. outputs data.pth that is needed
 
 # Installation
  
@@ -23,16 +22,77 @@ This package works only with python 3.7
 pip install build-your-sneky
 ```
 
-## Usage
+## Source installation
+
+```bash
+python setup.py install
+```
+
+# Usage
+
+## Usage with files
+
 ```py
 import sneky
-sneky.nltkpunkt()
 sneky.device()
-sneky.brain()
-sneky.ai_json()
-sneky.ai_load()
+sneky.nltkpunkt()
+sneky.brain(is_file=True, data_file='PATH_TO_FILE.pth')
 sneky.clear()
+sneky.ai_json(is_database=True, database_file='PATH_TO_FILE.json')
 while True:
     text = input("You: ")
-    sneky.speak("AI", text)
+    print(sneky.speak(text, is_database=True, database_file='PATH_TO_FILE.json')) - or if you want you can store that answer as variable
+```
+
+## usage with links
+
+```py
+import sneky
+sneky.device()
+sneky.nltkpunkt()
+sneky.brain(is_file=False, link='link_to_that_website/data.pth')
+sneky.clear()
+sneky.ai_json(is_database=False, link='link_to_that_website/name_of_your_database.json')
+while True:
+    text = input("You: ")
+    print(sneky.speak(text, is_database=False, link='link_to_that_website/name_of_your_database.json')) - or if you want you can store that answer as variable
+```
+
+# training usage
+
+```py
+import sneky
+sneky.training(database_file=PATH_TO_FILE.json, how_long=NUMBER) if you dont use number default is 10000
+```
+
+# database template
+```json
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey"
+      ],
+      "responses": [
+        "Hey",
+        "Hello"
+      ]
+    },
+    {
+      "tag": "favorite",
+      "patterns": [
+        "what do you like?",
+        "what is your favorite thing?",
+        "what do you love?"
+      ],
+      "responses": [
+        "I like snakes",
+        "I like green",
+        "I like music"
+      ]
+    }
+  ]
+}
 ```

@@ -1,5 +1,13 @@
 # Change log
 
+## [1.1.1] - 2021-1-31
+- added template json file
+
+## [1.1.0] - 2021-1-31
+- added training() function that creates you data.pth
+- added suport for your database
+- added suport for trained data
+
 ## [1.0.4] - 2021-1-30
 - added suport for voice output
 
