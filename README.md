@@ -1,5 +1,7 @@
 Build your own assistant/voice assistant with this basic AI chat.
 
+Newly added brain algorithm
+
 # Description
     
 It consists of nine main modules:
@@ -13,6 +15,14 @@ It consists of nine main modules:
 - `recieve_text`: Recieve your text, but you have to define that text from variable
 - `speak`: This is your chat, dont forget about bot name
 - `training`: This module trains your sneky from database. outputs data.pth that is needed
+
+## New thing called "Brain algorith"
+
+- brain aglorithm adds thinking before answer
+    So if you ask "What do you love"
+    I wont anymore answer "I like"
+    
+    you dont need to change anything
 
 # Installation
  
@@ -90,7 +100,8 @@ sneky.training(database_file=PATH_TO_FILE.json, how_long=NUMBER) if you dont use
       "responses": [
         "I like snakes",
         "I like green",
-        "I like music"
+        "I like music",
+        "I love electric cars"
       ]
     }
   ]

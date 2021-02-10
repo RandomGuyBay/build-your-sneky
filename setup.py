@@ -14,8 +14,8 @@ setup(
     install_requires=requirements,
     name='build-your-sneky',
     packages=find_packages(),
-    version='1.1.1',
-    description='Build your own assistant/voice assistant with this basic AI chat. This package does not contain AI training but training will be implemented in next version.',
+    version='1.2.0',
+    description='Build your own assistant/voice assistant with this basic AI chat. Newly added "brain algorithm"',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
     keywords=['Chat', 'Ai', 'Home_Automation'],
@@ -23,6 +23,6 @@ setup(
     url='https://github.com/RandomGuyBay/build-your-sneky',
     download_url='https://pypi.org/project/build-your-sneky/',
     license='MIT',
-    classifiers=["Programming Language :: Python :: 3.7"],
+    classifiers=["Programming Language :: Python :: 3.7", "Programming Language :: Python :: 3.8", "Programming Language :: Python :: 3.9"],
 )
 

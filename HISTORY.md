@@ -1,5 +1,12 @@
 # Change log
 
+## [1.2.0] - 2021-2-10
+- added brain algorithm
+    so if you say "What do you love"
+    it wont answer with "I like"
+
+    you dont need to change something
+
 ## [1.1.1] - 2021-1-31
 - added template json file
 

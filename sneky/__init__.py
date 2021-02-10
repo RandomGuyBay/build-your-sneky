@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import random
 
 import nltk
@@ -13,7 +14,7 @@ from torch import cuda as cuda
 from torch import device as devicess
 from torch import from_numpy as from_numpy
 from torch import load as load
-from torch import max as max
+from torch import max as maximize
 from torch import softmax as softmax
 from torch.utils.data import Dataset, DataLoader
 
@@ -132,7 +133,7 @@ def speak(variable_text, is_database, database_file="", link=""):
     x = from_numpy(x)
 
     output = model(x)
-    _, predicted = max(output, dim=1)
+    _, predicted = maximize(output, dim=1)
     tag = tags[predicted.item()]
 
     probs = softmax(output, dim=1)
@@ -141,8 +142,64 @@ def speak(variable_text, is_database, database_file="", link=""):
     if prob.item() > 0.99:
         for intent in ai_json(is_database, database_file=database_file, link=link)['intents']:
             if tag == intent["tag"]:
-                output_text = random.choice(intent['responses'])
-                return output_text
+                brain_think1 = ""
+                for every in range(len(intent["responses"])):
+                    brain_think1 += intent["responses"][every] + f"{every}"
+                for ii in re.findall(r'\d+', brain_think1):
+                    brain_think1 = brain_think1.replace(ii[0], "0")
+                brain_think1 = brain_think1.split("0")
+                brain_choose1 = ""
+                brain_answer = ""
+                for i in range(len(brain_think1)):
+                    brain_think2 = brain_think1[i]
+                    brain_think3 = brain_think1[i]
+                    brain_think2 = brain_think2.split()
+                    rand_string = str(sentence)
+                    rand_string = rand_string.split()
+                    test1 = ""
+                    test2 = ""
+                    for iiii in range(len(rand_string)):
+                        brain_move1 = ""
+                        for iii in range(len(brain_think2)):
+                            brain_think3 = len(re.findall(brain_think2[iii], rand_string[iiii]))
+                            brain_think3 = str(brain_think3)
+                            brain_think3 += "x"
+                            brain_move1 += brain_think3
+                        test1 += brain_move1 + " "
+                        brain_move2 = test1.split()
+                    try:
+                        brain_howmuch1 = max(brain_move2)
+                        brain_howmuch1 = brain_howmuch1.split()
+                        brain_howmuch1 = str(brain_howmuch1)
+                        brain_howmuch1 = len(re.findall(brain_howmuch1, "1"))
+                        brain_choose1 += str(brain_howmuch1) + "a"
+                    except ValueError:
+                        random.choice(intent['responses'])
+                brain_choose1 = brain_choose1[:-1]
+                brain_choose1 = brain_choose1
+                brain_choose1 = brain_choose1.split("a")
+                rand_string2 = str(brain_choose1)
+                brain_choose1 = list(brain_choose1)
+                testing = intent["responses"]
+                for not_sure in range(len(rand_string2)):
+                    if "1" in brain_choose1:
+                        try:
+                            brain_answer += intent["responses"][brain_choose1.index(
+                                '1')] + "HAHA"
+                            pass
+                            brain_choose1[brain_choose1.index('1')] = "C"
+                        except IndexError:
+                            random.choice(intent['responses'])
+                    else:
+                        pass
+                brain_answer = brain_answer.split("HAHA")
+                brain_answer = brain_answer[:-1]
+                try:
+                    output_text = random.choice(brain_answer)
+                    return output_text
+                except IndexError:
+                    output_text =random.choice(intent['responses'])
+                    return output_text
 
     else:
         output_text = 'I dont know'
